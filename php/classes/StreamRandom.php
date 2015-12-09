@@ -10,6 +10,7 @@ class StreamRandom implements StreamInterface {
 	private $index = 0;
 
 	public function __construct() {
+		// seed mt_rand
 		list($usec, $sec) = explode(' ', microtime());
 		$seed = (float) $sec + ((float) $usec * 100000);
 		mt_srand($seed);
