@@ -55,7 +55,7 @@ class Sampler {
 		}
 		
 		if ($length > $this->frequencyTotal) {
-			throw new Exception('cannot produce a sampel bigger than given input stream');
+			throw new Exception('cannot produce a sample bigger than given input stream');
 		}
 
 		$sample = '';
