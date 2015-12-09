@@ -61,7 +61,7 @@ class Sampler {
 		$sample = '';
 
 		for ($i=0; $i<$length; $i++) {
-			$diceRoll = rand(0,$this->frequencyTotal);
+			$diceRoll = mt_rand(0,$this->frequencyTotal);
 
 			$runner = 0;
 			foreach($this->frequency as $value => $count) {
