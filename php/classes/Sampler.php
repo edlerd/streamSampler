@@ -53,6 +53,10 @@ class Sampler {
 		if (!isset($this->frequency)) {
 			throw new Exception('the frequency array was not yet initialised, call updateFrequencyArray first');
 		}
+		
+		if ($length > $this->frequencyTotal) {
+			throw new Exception('cannot produce a sampel bigger than given input stream');
+		}
 
 		$sample = '';
 
