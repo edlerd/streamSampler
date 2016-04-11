@@ -33,14 +33,17 @@ switch ($options["stream"]) {
 		$stream = new StreamStdin();
 		break;
 	case 'random':
-		$stream = new StreamRandom();
+		$stream = new StreamRandom($length);
 		break;
 	case 'randomOrg':
-		$stream = new StreamRandomOrg();
+		$url = '';
+		$streamResult = new HttpStreamRandomOrgRefiller($url)->read();
 		break;
 	default:
 		print_usage_exit();
 }
+
+$stream = new StreamHandler($streamResult);
 
 $sampler = new Sampler();
 $sampler->updateFrequencyArray($stream);

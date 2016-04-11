@@ -9,7 +9,8 @@ class StreamRandom implements StreamInterface {
 	private $streamLength = 1000;
 	private $index = 0;
 
-	public function __construct() {
+	public function __construct($length) {
+		$this->streamLength = $length;
 		// seed mt_rand
 		list($usec, $sec) = explode(' ', microtime());
 		$seed = (float) $sec + ((float) $usec * 100000);
@@ -26,4 +27,5 @@ class StreamRandom implements StreamInterface {
 	public function streamEnded() {
 		return ($this->index > $this->streamLength);
 	}
+
 }

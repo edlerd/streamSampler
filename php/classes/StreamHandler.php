@@ -4,14 +4,10 @@
  *
  * Class StreamRandomOrg
  */
-class StreamHandler implements StreamInterface {
+class StreamResultReader implements StreamInterface {
 
 	private $streamResult;
 	private $index = -1;
-	/**
-	 * @var RefillerInterface
-	 */
-	private $refiller;
 
 	public __construct(StreamResult $streamResult) {
 		$this->streamResult = $streamResult;
@@ -29,7 +25,7 @@ class StreamHandler implements StreamInterface {
 		return $char;
 	}
 
-	public function streamEnded() {
+	public function isStreamEnded() {
 
 		return ($this->index >= $this->streamResult->getLength());
 	}
